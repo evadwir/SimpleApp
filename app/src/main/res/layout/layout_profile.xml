@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="model"
+            type="com.simpleapp.model.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/black_border"
+            android:layout_marginTop="@dimen/space_x1"
+            android:layout_marginStart="@dimen/space_x2"
+            android:layout_marginEnd="@dimen/space_x2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/img_user"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_user"
+                android:layout_margin="@dimen/space_x2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{model.name}"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/space_x1"
+                app:layout_constraintTop_toTopOf="@id/img_user"
+                app:layout_constraintStart_toEndOf="@id/img_user"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Eva Dwi Rochmawati"/>
+
+            <TextView
+                android:id="@+id/txt_gender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{model.gender}"
+                tools:text="Female"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/space_x1"
+                app:layout_constraintTop_toBottomOf="@id/txt_name"
+                app:layout_constraintStart_toStartOf="@id/txt_name"
+                app:layout_constraintEnd_toEndOf="@id/txt_name" />
+
+            <TextView
+                android:id="@+id/txt_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{model.phone}"
+                tools:text="+6281287048963"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/space_x1"
+                app:layout_constraintTop_toBottomOf="@id/txt_gender"
+                app:layout_constraintStart_toStartOf="@id/txt_gender"
+                app:layout_constraintEnd_toEndOf="@id/txt_gender" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/constraint_user"
+            android:layout_marginTop="@dimen/space_x2">
+
+            <TextView
+                android:id="@+id/txt_logout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_x1"
+                android:drawableStart="@drawable/ic_logout"
+                android:drawablePadding="@dimen/space_x1"
+                android:text="@string/log_out"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginStart="@dimen/space_x2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    
+</layout>

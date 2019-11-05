@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+   <data>
+      <variable
+          name="vm"
+          type="com.simpleapp.viewmodel.LoginViewModel" />
+   </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          app:layout_constraintGuide_percent="0.5"/>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/txt_input_email"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/space_x2"
+          android:hint="@string/email"
+          app:hintAnimationEnabled="false"
+          app:layout_constraintEnd_toEndOf="@id/txt_input_password"
+          app:layout_constraintStart_toStartOf="@id/txt_input_password"
+          app:layout_constraintBottom_toTopOf="@id/txt_input_password">
+
+         <com.google.android.material.textfield.TextInputEditText
+             android:id="@+id/txt_input_edt_email"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:maxLines="1"
+             android:text="@={vm.email}"
+             android:inputType="textEmailAddress"/>
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/txt_input_password"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/space_x2"
+          android:hint="@string/password"
+          app:hintAnimationEnabled="false"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintBottom_toBottomOf="@id/guideline"
+          app:passwordToggleEnabled="true">
+
+         <com.google.android.material.textfield.TextInputEditText
+             android:id="@+id/txt_input_edt_password"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:inputType="textPassword"
+             android:maxLines="1"
+             android:text="@={vm.password}" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <Button
+          android:id="@+id/btn_login"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/login"
+          android:textColor="@color/white"
+          android:background="@drawable/blue_button_selector"
+          android:enabled="@{vm.enableLogin}"
+          android:layout_marginTop="@dimen/space_x4"
+          app:layout_constraintTop_toBottomOf="@id/guideline"
+          app:layout_constraintStart_toStartOf="@id/txt_input_password"
+          app:layout_constraintEnd_toEndOf="@id/txt_input_password"/>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
